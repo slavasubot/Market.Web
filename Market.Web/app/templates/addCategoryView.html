@@ -1,0 +1,124 @@
+﻿<form class="form-horizontal" name="addCategoryForm" novalidate ng-controller="addCategoryController as vm">
+    <fieldset>
+        <legend>Create New Category</legend>
+
+        <div class="form-group"
+             ng-class="{'has-error': addCategoryForm.inputCategoryName.$invalid && addCategoryForm.inputCategoryName.$dirty}">
+            <label class="col-md-2 control-label" for="inputCategoryName">Category Name</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputCategoryName"
+                       name="inputCategoryName"
+                       type="text"
+                       placeholder="Category Name(required)"
+                       ng-model="vm.category.name"
+                       required
+                       ng-minlength="4"
+                       ng-maxlength="16" />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="addCategoryForm.inputCategoryName.$error.required">
+                    Category name is required.
+                </span>
+                <span ng-show="addCategoryForm.inputCategoryName.$error.minlength">
+                    Category name must be at least 4 characters in length.
+                </span>
+                <span ng-show="addCategoryForm.inputCategoryName.$error.maxlength">
+                    Category name cannot exceed 16 characters in length.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error': addCategoryForm.inputCategoryPlanned.$invalid && addCategoryForm.inputCategoryPlanned.$dirty}">
+            <label class="col-md-2 control-label" for="inputCategoryPlanned">Planned</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputCategoryPlanned"
+                       name="inputCategoryPlanned"
+                       type="text"
+                       placeholder="Category Planned(required)"
+                       ng-model="vm.category.planned"
+                       required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="addCategoryForm.inputCategoryPlanned.$error.required">
+                    Category planned is required.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error': addCategoryForm.inputCategorySpent.$invalid && addCategoryForm.inputCategorySpent.$dirty}">
+            <label class="col-md-2 control-label" for="inputCategorySpent">Spent</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputCategorySpent"
+                       name="inputCategorySpent"
+                       type="text"
+                       placeholder="Category Spent(required)"
+                       ng-model="vm.category.spent"
+                       required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="addCategoryForm.inputCategorySpent.$error.required">
+                    Category spent is required.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error': addCategoryForm.inputCategoryPurchasesCost.$invalid && addCategoryForm.inputCategoryPurchasesCost.$dirty}">
+            <label class="col-md-2 control-label" for="inputCategoryPurchasesCost">PurchasesCost</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputCategoryPurchasesCost"
+                       name="inputCategoryPurchasesCost"
+                       type="text"
+                       placeholder="Category PurchasesCost(required)"
+                       ng-model="vm.category.purchasesCost"
+                       required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="addCategoryForm.inputCategoryPurchasesCost.$error.required">
+                    Category purchasesCost is required.
+                </span>
+            </span>
+        </div>
+
+       
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width: 80px; margin-right: 10px"
+                            ng-click="vm.submit()"
+                            ng-disabled="addCategoryForm.$invalid">
+                        Save
+                    </button>
+                </span>
+
+                <span>
+                    <button class="btn btn-default"
+                            type="reset"
+                            style="width: 70px">
+                        Cancel
+                    </button>
+                </span>
+
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-show="vm.message">
+            <div class="col-md-6">
+                <pre style="font: inherit">{{vm.message}}</pre>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
