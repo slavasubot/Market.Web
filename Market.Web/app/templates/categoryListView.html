@@ -1,0 +1,35 @@
+﻿   
+                   
+        <table class="table" >  
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Planned</th>
+                    <th>Spent</th>
+                    <th>PurchasesCost</th>
+                    <th>CreatedAt</th>
+                    <th>UpdatedAt</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="category in vm.categories">
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>{{category.planned | currency}}</td>
+                    <td>{{category.spent | currency}}</td>
+                    <td>{{category.purchasesCost | currency}}</td>
+                    <td>{{category.createdAt | date}}</td>
+                    <td>{{category.updatedAt | date}}</td>
+                    
+                   
+                    <td><div><a href="#/editcategory"><i class="glyphicon glyphicon-edit">Edit</i></a></div></td>
+                    <!--<td><button class="btn btn-primary" type="button" ng-click="vm.del(category.id)" >Delete</button></td>-->
+                    <td><a ng-click="deleteCategory(category.id)" class="btn  btn-danger">Delete</a></td>
+                </tr>
+            </tbody>           
+        </table>
+         
+  
+
