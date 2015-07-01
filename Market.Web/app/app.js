@@ -1,46 +1,71 @@
-﻿(function () {
+﻿(function() {
     "use strict";
-    var app = angular.module("Market.Web", ["common.services","ngRoute", "ui.router"]);
 
-    //app.config(["$stateProvider", function ($stateProvider, $urlRouterProvider) {
+    var app = angular.module("Market.Web", ["common.services", "ui.router"]);
 
-    //    $urlRouterProvider.otherwise("/");
+    app.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
 
-    //        $stateProvider.state("home", {
-    //            url: "/",
-    //            templateUrl:"app/template/welcomeView.html",
-    //        });
+        $urlRouterProvider.otherwise("/");
 
-    //        $stateProvider.state("categoryList", {
-    //            url: "api/category",
-    //            templateUrl: "app/templates/categoryListView.html",
-    //            controller: "categoryController as vm"
-    //        });
-    //    }
-    //]);
+        $stateProvider
+            .state("categoryList", {
+                url: "/categories",
+                templateUrl: "app/templates/categoryListView.html",
+                controller: "categoryListController as vm"
 
+            })
+            .state("home", {
+                url: "/",
+                templateUrl: "app/templates/welcomeView.html"
+            })
+            .state("categoryEdit", {
+                url: "/categories/edit/:id",
+                templateUrl: "app/templates/categoryEditView.html",
+                controller: "categoryEditController as vm",
+                resolve: {
+                    categoryResource: "categoryResource",
+                    category: function (categoryResource, $stateParams) {
+                        var categoryId = $stateParams.id;
+                        return categoryResource.get({ id: categoryId }).$promise;
+                    }
+                }
 
-    app.config(function($routeProvider) {
-        $routeProvider.when("/home", {
-            controller: "",
-            templateUrl: "app/templates/welcomeView.html"
-        });
+            })
 
-        $routeProvider.when("/categories", {
-            controller: "categoryController as vm",
-            templateUrl: "app/templates/categoryListView.html"
-        });
+            .state("categoryAdd", {
+                url: "/categories/add/:id",
+                templateUrl: "app/templates/addCategoryView.html",
+                controller: "addCategoryController as vm"
+            })
 
-        $routeProvider.when("/addcategory", {
-            controller: "addCategoryController",
-            templateUrl: "app/templates/addCategoryView.html"
-        });
+            .state("categoryDelete", {
+                url: "/categories/delete/:id",
+                templateUrl: "app/templates/categoryListView.html",
+                controller: "categoryDeleteController as vm",
+                resolve: {
+                    categoryResource: "categoryResource",
+                    category: function(categoryResource, $stateParams) {
+                        var categoryId = $stateParams.id;
+                        return categoryResource.delete({ id: categoryId }).$promise;
+                    }
+                }
+            })
 
-        $routeProvider.when("/editcategory", {
-            controller: "categoryEditController",
-            templateUrl: "app/templates/categoryEditView.html"
-        });
+            .state("categoryDetail", {
+                url: "/categories/:id",
+                templateUrl: "app/templates/categoryDetailView.html",
+                controller: "categoryDetailController as vm",
+                resolve: {
+                    categoryResource: "categoryResource",
+                    category: function(categoryResource, $stateParams) {
+                        var categoryId = $stateParams.id;
+                        return categoryResource.get({ id: categoryId }).$promise;
+                    }
+                }
+            });
 
-    });
+        
+        
+    }]);
 
 }());
