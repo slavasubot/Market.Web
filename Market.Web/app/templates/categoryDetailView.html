@@ -1,0 +1,50 @@
+﻿<form class="form-horizontal">
+   
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="font-size: large">{{vm.title}}</div>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">Name:</div>
+                        <div class="col-md-6">{{vm.category.name}}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">Planned:</div>
+                        <div class="col-md-6">{{vm.category.planned | currency}}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">Spent:</div>
+                        <div class="col-md-6">{{vm.category.spent | currency}}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">PurchasesCost:</div>
+                        <div class="col-md-6">{{vm.category.purchasesCost | currency}}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">CreatedAt:</div>
+                        <div class="col-md-6">{{vm.category.createdAt | date}}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">UpdatedAt:</div>
+                        <div class="col-md-6">{{vm.category.updatedAt | date}}</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <a class="btn btn-default" ui-sref="categoryList" style="width: 80px"><i class="glyphicon glyphicon-chevron-left"></i>Back</a>
+                <a class="btn btn-primary" ui-sref="categoryEdit({id: vm.category.id})" style="width: 80px; margin-left: 10px">Edit</a>
+            </div>
+
+        </div>
+
+</form>

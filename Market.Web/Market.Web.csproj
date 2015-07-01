@@ -65,19 +65,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\addCategoryController.js" />
-    <Content Include="app\controllers\categoryController.js" />
+    <Content Include="app\controllers\categoryDeleteController.js" />
+    <Content Include="app\controllers\categoryDetailController.js" />
     <Content Include="app\controllers\categoryEditController.js" />
-    <Content Include="app\controllers\purchaseController.js" />
+    <Content Include="app\controllers\categoryListController.js" />
     <Content Include="app\images\home.jpg" />
     <Content Include="app\images\products.jpg" />
     <Content Include="app\services\categoryResource.js" />
+    <Content Include="app\services\common.services.js" />
+    <Content Include="app\templates\categoryDetailView.html" />
     <Content Include="app\templates\categoryEditView.html" />
-    <Content Include="app\templates\categoryListView.html" />
     <Content Include="app\templates\addCategoryView.html" />
+    <Content Include="app\templates\categoryListView.html" />
     <Content Include="app\templates\welcomeView.html" />
     <Content Include="Content\app.css" />
     <Content Include="packages.config" />
-    <Content Include="app\services\common.services.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
