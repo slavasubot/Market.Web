@@ -1,30 +1,34 @@
+using Market.Data.Contexts;
+using Market.Domain.Entities;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 namespace Market.Data.Migrations
 {
-   
+    using System;
     using System.Data.Entity.Migrations;
    
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Contexts.DomainDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<AuthContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Contexts.DomainDbContext context)
+        protected override void Seed(AuthContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var manager = new UserManager<User>(new UserStore<User>(new AuthContext()));
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var user = new User
+            {
+                UserName = "Slava",
+                Email = "slavasubot@gmail.com",
+                EmailConfirmed = true,
+                JoinDate = DateTime.Now.AddYears(-1)
+            };
+
+            manager.Create(user, "qwerty12345");
         }
     }
 }
