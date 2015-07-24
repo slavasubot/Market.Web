@@ -65,18 +65,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\addCategoryController.js" />
+    <Content Include="app\controllers\addPurchaseController.js" />
     <Content Include="app\controllers\categoryDeleteController.js" />
     <Content Include="app\controllers\categoryDetailController.js" />
     <Content Include="app\controllers\categoryEditController.js" />
     <Content Include="app\controllers\categoryListController.js" />
+    <Content Include="app\controllers\purchaseDeleteController.js" />
+    <Content Include="app\controllers\purchaseDetailController.js" />
+    <Content Include="app\controllers\purchaseEditController.js" />
+    <Content Include="app\controllers\purchaseListController.js" />
     <Content Include="app\images\home.jpg" />
     <Content Include="app\images\products.jpg" />
     <Content Include="app\services\categoryResource.js" />
     <Content Include="app\services\common.services.js" />
+    <Content Include="app\services\purchaseResource.js" />
+    <Content Include="app\templates\addPurchaseView.html" />
     <Content Include="app\templates\categoryDetailView.html" />
     <Content Include="app\templates\categoryEditView.html" />
     <Content Include="app\templates\addCategoryView.html" />
     <Content Include="app\templates\categoryListView.html" />
+    <Content Include="app\templates\purchaseDetailView.html" />
+    <Content Include="app\templates\purchaseEditView.html" />
+    <Content Include="app\templates\purchasesListView.html" />
     <Content Include="app\templates\welcomeView.html" />
     <Content Include="Content\app.css" />
     <Content Include="packages.config" />
@@ -890,6 +900,7 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.13.0.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

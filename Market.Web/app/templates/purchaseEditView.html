@@ -1,0 +1,155 @@
+﻿<form class="form-horizontal" name="purchaseForm" novalidate ng-controller="purchaseEditController as vm">
+    <fieldset>
+        <legend>Purchase Edit</legend>
+
+        <div class="form-group"
+             ng-class="{'has-error': purchaseForm.inputPurchaseName.$invalid && purchaseForm.inputPurchaseName.$dirty}">
+            <label class="col-md-2 control-label" for="inputPurchaseName">Name</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputPurchaseName"
+                       name="inputPurchaseName"
+                       type="text"
+                       placeholder="Purchase Name(required)"
+                       ng-model="vm.purchase.name"
+                       required
+                       ng-minlength="2"
+                       ng-maxlength="16" />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="purchaseForm.inputPurchaseName.$error.required">
+                    Purchase name is required.
+                </span>
+                <span ng-show="purchaseForm.inputPurchaseName.$error.minlength">
+                    Purchase name must be at least 2 characters in length.
+                </span>
+                <span ng-show="purchaseForm.inputPurchaseName.$error.maxlength">
+                    Purchase name cannot exceed 16 characters in length.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error': purchaseForm.inputPurchasePrice.$invalid && purchaseForm.inputPurchasePrice.$dirty}">
+            <label class="col-md-2 control-label" for="inputPurchasePrice">Price</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputPurchasePrice"
+                       name="inputPurchasePrice"
+                       type="text"
+                       placeholder="Purchase Price(required)"
+                       ng-model="vm.purchase.price"
+                       required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="purchaseForm.inputPurchasePrice.$error.required">
+                    Purchase price is required.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error': purchaseForm.inputPurchaseBuyed.$invalid && purchaseForm.inputPurchaseBuyed.$dirty}">
+            <label class="col-md-2 control-label" for="inputPurchaseBuyed">Buyed</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputPurchaseBuyed"
+                       name="inputPurchaseBuyed"
+                       type="text"
+                       placeholder="Purchase Buyed(required)"
+                       ng-model="vm.purchase.buyed"
+                       required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="purchaseForm.inputPurchaseBuyed.$error.required">
+                    Purchase buyed is required.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error': purchaseForm.inputPurchaseBuyedTime.$invalid && purchaseForm.inputPurchaseBuyedTime.$dirty}">
+            <label class="col-md-2 control-label" for="inputPurchaseBuyedTime">Purchase BuyedTime</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputPurchaseBuyedTime"
+                       name="inputPurchaseBuyedTime"
+                       type="text"
+                       placeholder="Purchase BuyedTime(required)"
+                       ng-model="vm.purchase.buyedTime"
+                       required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="purchaseForm.inputPurchaseBuyedTime.$error.required">
+                    Purchase buyedTime is required.
+                </span>
+            </span>
+        </div>
+        
+        
+        <div class="form-group"
+             ng-class="{'has-error': purchaseForm.inputCategoryId.$invalid && purchaseForm.inputCategoryId.$dirty}">
+            <label class="col-md-2 control-label" for="inputCategoryId">Purchase CategoryId</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputCategoryId"
+                       name="inputCategoryId"
+                       type="text"
+                       placeholder="Purchase CategoryId(required)"
+                       ng-model="vm.purchase.categoryId"
+                       required />
+            </div>
+            <span class="help-block has-error">
+                <span ng-show="purchaseForm.inputCategoryId.$error.required">
+                    Purchase categoryId is required.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+
+                <span>
+                    <a class="btn btn-default" ui-sref="purchasesList" style="width: 80px">
+                        <i class="glyphicon glyphicon-chevron-left"></i>Back
+                    </a>
+                </span>
+                
+                <span>
+                    <button class="btn btn-primary"
+                            style="width: 80px; margin-right: 10px"
+                            ng-click="vm.submit()"
+                            ng-disabled="purchaseForm.$invalid">
+                        Save
+                    </button>
+                </span>
+
+                <span>
+                    <button class="btn btn-default"
+                            style="width: 70px"
+                            ng-click="vm.cancel(purchaseForm)">
+                        Cancel
+                    </button>
+                </span>
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group"
+             ng-show="vm.message">
+            <div class="col-md-6">
+                <pre style="font: inherit">{{vm.message}}</pre>
+            </div>
+        </div>
+
+    </fieldset>
+</form>

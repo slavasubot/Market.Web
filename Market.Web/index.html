@@ -15,6 +15,7 @@
     <script src="Scripts/angular-resource.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
     <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/ui-bootstrap-tpls-0.13.0.min.js"></script>
     <!--<script src="Scripts/angular-route.js"></script>-->
    
 
@@ -27,13 +28,19 @@
     <script src="app/controllers/categoryDetailController.js"></script>
     <script src="app/controllers/categoryEditController.js"></script>
     <script src="app/controllers/addCategoryController.js"></script>
-
     <script src="app/controllers/categoryDeleteController.js"></script>
-
+    
+    <script src="app/controllers/purchaseListController.js"></script>
+    <script src="app/controllers/addPurchaseController.js"></script>
+    <script src="app/controllers/purchaseDeleteController.js"></script>
+    <script src="app/controllers/purchaseDetailController.js"></script>
+    <script src="app/controllers/purchaseEditController.js"></script>
+    
 
     <!--Services-->
     <script src="app/services/common.services.js"></script>
     <script src="app/services/categoryResource.js"></script>
+    <script src="app/services/purchaseResource.js"></script>
 
 </head>
     <body ng-app="Market.Web">
@@ -52,7 +59,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a ui-sref="categoryList">Category List</a></li> 
-                        <li><a ui-sref="categoryAdd"> <i class="glyphicon glyphicon-plus">Add Category</i></a></li>
+                        <!--<li><a ui-sref="categoryAdd"> <i class="glyphicon glyphicon-plus">Add Category</i></a></li>-->
+                        <li><a ui-sref="purchasesList">Purchases List</a></li>
+                       
                     </ul>
                 </div>
             </div>

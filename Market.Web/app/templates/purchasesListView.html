@@ -1,0 +1,43 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" style="font-size: large">Purchases List</div>
+</div>
+
+<div class="panel-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Buyed</th>
+                <th>BuyedTime</th>
+                <th>CategoryId</th>
+                <th>Actions</th>               
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="purchase in vm.purchases">
+                <td>{{purchase.id}}</td>
+                <td><a ui-sref="purchaseDetail({id: purchase.id})">{{purchase.name}}</a></td>
+                <td>{{purchase.price | currency}}</td>
+                <td>{{purchase.buyed}}</td>
+                <td>{{purchase.buyedTime | date}}</td>
+                <td>{{purchase.categoryId}}</td>
+
+                <td>
+                    <a class="btn btn-primary" ui-sref="purchaseEdit({id: purchase.id})"><i class="glyphicon glyphicon-edit">Edit</i></a>
+                </td>
+
+                <td>
+                    <a class="btn btn-danger" ui-sref="purchaseDelete({id: purchase.id})"><i class="glyphicon glyphicon-remove">Delete</i></a>
+                </td>
+
+            </tr>
+        </tbody>
+        
+        
+
+    </table>
+    <a class="btn btn-primary" ui-sref="purchaseAdd"><i class="glyphicon glyphicon-plus">Add Purchase</i></a>
+</div>
